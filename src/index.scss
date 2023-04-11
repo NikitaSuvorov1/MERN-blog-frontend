@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F5F5F5 !important;
+}
+
+.home {
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts {
+  width: 60%;
+}
+
+.tagsComments {
+  width: 35%;
+}
+
+@media (max-width: 700px) {
+
+  .posts {
+    width: 100%;
+  }
+
+  .home {
+    width: 100%;
+    display: block;
+    flex-direction: column-reverse;
+  } 
+
+  .tagsComments {
+    width: 100%;
+  }
+}
