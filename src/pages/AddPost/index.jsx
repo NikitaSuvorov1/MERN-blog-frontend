@@ -21,13 +21,17 @@ export const AddPost = () => {
   const {id} = useParams()
 
   const handleChangeFile =async (event) => {
+    try {
       const formData = new FormData()
       const file = event.target.files[0]
-      console.log(file)
       formData.append('image',file)
+      console.log(formData)
       const {data} = await axios.post('/upload',formData)
+      console.log(data)
       setImageUrl(data)
-      console.log(imageUrl)
+    } catch (error) {
+      console.log(error)
+      alert('Ошибка при загрузке фотографии')
     }
   };
  
