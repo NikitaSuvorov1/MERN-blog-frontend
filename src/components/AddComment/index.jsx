@@ -42,7 +42,7 @@ const userData = useSelector((state) => state.auth.data)
       <div className={styles.root}>
         <Avatar
           classes={{ root: styles.avatar }}
-           src={userData?.avatarUrl && `http://localhost:4444${userData.avatarUrl}`}
+           src={userData?.avatarUrl && `${process.env.REACT_APP_API_URL}${userData.avatarUrl}`}
         />
         <div className={styles.form}>
           <TextField

@@ -38,7 +38,7 @@ export const Header = () => {
                 width={38}
                 height={38}
                 style={{ borderRadius: "20px", marginRight: '10px' }}
-                src={`http://localhost:4444${userData.avatarUrl}`}
+                src={`${process.env.REACT_APP_API_URL}${userData.avatarUrl}`}
           
               />
             )}
