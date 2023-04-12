@@ -21,17 +21,19 @@ export const AddPost = () => {
   const {id} = useParams()
 
   const handleChangeFile =async (event) => {
-    try {
+    // try {
       const formData = new FormData()
       const file = event.target.files[0]
+      console.log(file)
       formData.append('image',file)
       const {data} = await axios.post('/upload',formData)
       setImageUrl(data)
-  
-    } catch (error) {
-      console.log(error)
+      console.log(imageUrl,"imageurl")
+    // } catch (error) {
+      // console.log(error)
     }
   };
+ 
 
   const onClickRemoveImage = () => {
     setImageUrl('')
