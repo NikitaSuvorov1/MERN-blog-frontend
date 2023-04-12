@@ -21,7 +21,6 @@ export const AddPost = () => {
   const {id} = useParams()
 
   const handleChangeFile =async (event) => {
-    // try {
       const formData = new FormData()
       const file = event.target.files[0]
       console.log(file)
@@ -29,8 +28,6 @@ export const AddPost = () => {
       const {data} = await axios.post('/upload',formData)
       setImageUrl(data)
       console.log(imageUrl)
-    // } catch (error) {
-      // console.log(error)
     }
   };
  
