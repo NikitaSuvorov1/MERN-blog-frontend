@@ -25,9 +25,8 @@ export const AddPost = () => {
       const formData = new FormData()
       const file = event.target.files[0]
       formData.append('image',file)
-      // const {data} = await axios.post('/upload',formData)
-      // console.log(data)
-      console.log(file)
+      const {data} = await axios.post('/upload',formData)
+      // console.log(file)
       setImageUrl(file.name)
       console.log(imageUrl)
     } catch (error) {
@@ -70,6 +69,7 @@ export const AddPost = () => {
         tags: tags.split(','),
         imageUrl
       }
+      console.log(fields)
           const {data} = isEditable ? await axios.patch(`/posts/${id}`,fields) :
           await axios.post('/posts',fields)
           const _id = isEditable ?  id : data._id
@@ -80,7 +80,6 @@ export const AddPost = () => {
     }
   }
 
-  console.log(isEditable)
 
   useEffect(() => {
     if (id) {

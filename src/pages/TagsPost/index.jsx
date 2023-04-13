@@ -18,7 +18,6 @@ export const TagsPosts = () => {
         dispatch(fetchPostByTags(tagName));
     },[])
 
-    console.log(posts.items)
 
     return (
         <>
