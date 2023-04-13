@@ -25,10 +25,11 @@ export const AddPost = () => {
       const formData = new FormData()
       const file = event.target.files[0]
       formData.append('image',file)
-      const {data} = await axios.post('/upload',formData)
-      // console.log(file)
-      setImageUrl(file.name)
-      console.log(imageUrl)
+      console.log(event.target.files[0].name)
+      const {data} = await axios.post('/upload',event.target.files[0].name)
+      // console.log(data)
+      setImageUrl(data.url)
+      // console.log(imageUrl)
     } catch (error) {
       console.log(error)
       alert('Ошибка при загрузке фотографии')
