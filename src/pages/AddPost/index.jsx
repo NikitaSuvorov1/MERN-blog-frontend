@@ -25,10 +25,11 @@ export const AddPost = () => {
       const formData = new FormData()
       const file = event.target.files[0]
       formData.append('image',file)
-      console.log(formData)
-      const {data} = await axios.post('/upload',formData)
-      console.log(data)
-      setImageUrl(data)
+      // const {data} = await axios.post('/upload',formData)
+      // console.log(data)
+      console.log(file)
+      setImageUrl(file.name)
+      console.log(imageUrl)
     } catch (error) {
       console.log(error)
       alert('Ошибка при загрузке фотографии')
@@ -108,7 +109,7 @@ export const AddPost = () => {
         </Button>
       )}
       {imageUrl && (
-        <img className={styles.image} src={`${process.env.REACT_APP_API_URL$}{imageUrl}`} alt="Uploaded" />
+        <img className={styles.image} src={`${process.env.REACT_APP_API_URL$}${imageUrl}`} alt="Uploaded" />
       )}
       <br />
       <br />
