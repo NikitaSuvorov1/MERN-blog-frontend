@@ -7,6 +7,7 @@ import SimpleMDE from 'react-simplemde-editor';
 import 'easymde/dist/easymde.min.css';
 import styles from './AddPost.module.scss';
 import axios from '../../axios'
+// import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -21,19 +22,18 @@ export const AddPost = () => {
   const {id} = useParams()
 
   const handleChangeFile =async (event) => {
-    try {
+    // try {
       const formData = new FormData()
       const file = event.target.files[0]
       formData.append('image',file)
-      console.log(event.target.files[0].name)
-      const {data} = await axios.post('/upload',event.target.files[0].name)
-      // console.log(data)
-      setImageUrl(data.url)
-      // console.log(imageUrl)
-    } catch (error) {
-      console.log(error)
-      alert('Ошибка при загрузке фотографии')
-    }
+      const {config} = await axios.post('/upload',formData)
+      console.log(config)
+      setImageUrl(config)
+      console.log(imageUrl)
+    // } catch (error) {
+    //   console.log(error)
+    //   alert('Ошибка при загрузке фотографии')
+    // }
   };
  
 
