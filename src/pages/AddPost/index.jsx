@@ -20,14 +20,13 @@ export const AddPost = () => {
 
   const {id} = useParams()
 
-  const handleChangeFile =async (event) => {
+  const handleChangeFile = async (event) => {
     try {
       const formData = new FormData()
       const file = event.target.files[0]
-      formData.append("image",file)
+      formData.append("img",file)
       const {data} = await axios.post('/upload',formData)
       setImageUrl(data.url)
-      // console.log(imageUrl)
     } catch (error) {
       console.log(error)
       alert('Ошибка при загрузке фотографии')
@@ -42,6 +41,8 @@ export const AddPost = () => {
   const onChange = React.useCallback((value) => {
     setText(value);
   }, []);
+
+  console.log(imageUrl)
 
   const options = React.useMemo(
     () => ({
@@ -100,14 +101,14 @@ export const AddPost = () => {
       <Button onClick={() => inputFileRef.current.click()} variant="outlined" size="large">
         Загрузить превью
       </Button>
-      <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
+      <input ref={inputFileRef} type='file' onChange={handleChangeFile} hidden />
       {imageUrl && (
         <Button variant="contained" color="error" onClick={onClickRemoveImage}>
           Удалить
         </Button>
       )}
       {imageUrl && (
-        <img className={styles.image} src={`${process.env.REACT_APP_API_URL$}${imageUrl}`} alt="Uploaded" />
+        <img className={styles.image} src={`${process.env.REACT_APP_API_URL}${imageUrl}`} alt="Uploaded" />
       )}
       <br />
       <br />
