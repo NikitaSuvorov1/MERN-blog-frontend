@@ -25,6 +25,7 @@ export const AddPost = () => {
       const formData = new FormData()
       const file = event.target.files[0]
       formData.append("img",file)
+      console.log(formData)
       const {data} = await axios.post('/upload',formData)
       setImageUrl(data.url)
     } catch (error) {
@@ -42,7 +43,7 @@ export const AddPost = () => {
     setText(value);
   }, []);
 
-  console.log(imageUrl)
+  
 
   const options = React.useMemo(
     () => ({

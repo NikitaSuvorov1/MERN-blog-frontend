@@ -51,6 +51,7 @@ export const fetchCreateComment = createAsyncThunk('posts/fetchCreateComment', a
     return data;
 })
 
+
 export const fetchPostByTags = createAsyncThunk('posts/fetchPostsByTags',async (id) => {
     const {data} = await axios.get(`/tags/${id}`)
     return data;
