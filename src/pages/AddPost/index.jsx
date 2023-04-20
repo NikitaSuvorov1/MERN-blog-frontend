@@ -109,7 +109,7 @@ export const AddPost = () => {
         </Button>
       )}
       {imageUrl && (
-        <img className={styles.image} src={`${process.env.REACT_APP_API_URL}${imageUrl}`} alt="Uploaded" />
+        <img className={styles.image} src={`https://mern-blog-service-api.onrender.com${imageUrl}`} alt="Uploaded" />
       )}
       <br />
       <br />
