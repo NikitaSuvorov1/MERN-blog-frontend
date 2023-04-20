@@ -67,7 +67,7 @@ export const AddPost = () => {
       const fields = {
         title,
         text,
-        tags: tags.split(''),
+        tags: tags.split(','),
         imageUrl
       }
       console.log(fields)
