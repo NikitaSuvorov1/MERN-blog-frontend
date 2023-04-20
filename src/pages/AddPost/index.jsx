@@ -67,11 +67,12 @@ export const AddPost = () => {
       const fields = {
         title,
         text,
-        tags,
+        tags: tags.split(','),
         imageUrl
       }
       console.log(fields)
           const {data} = isEditable ? await axios.patch(`/posts/${id}`,fields) :
+          // console.log(data,"data")
           await axios.post('/posts',fields)
           const _id = isEditable ?  id : data._id
           setIsEditable(false)

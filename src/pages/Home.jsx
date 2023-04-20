@@ -40,7 +40,7 @@ const [sortType,setSortType] = useState('newest')
 
   const uniqueTags = [...new Set(tags.items)]
 
-
+  console.log(posts.items)
 
   return (
     <>
@@ -65,7 +65,7 @@ const [sortType,setSortType] = useState('newest')
           ))}
         </Grid>
         <Grid className='tagsComments' xs={4} item>
-          <TagsBlock items={uniqueTags.map((tag) => tag)} isLoading={tags.status === "loading" ? true : false} />
+          <TagsBlock items={uniqueTags.filter((tag) => tag != '').map((tag) => tag)} isLoading={tags.status === "loading" ? true : false} />
           <CommentsBlock
             items={comments.items}
             isLoading={comments.status === "loading" ? true : false}
